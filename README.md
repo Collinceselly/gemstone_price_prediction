@@ -1,1 +1,0 @@
-## End to end gemstone price prediction machine learning project
