@@ -93,12 +93,14 @@ class DataTransformation:
 
             input_feature_test_df=test_df.drop(columns=drop_columns,axis=1)
             target_feature_test_df=test_df[target_column_name]
+            logging.info(f'input feature train df head: \n{input_feature_train_df.head()}')
 
             logging.info("Applying preprocessing object on training and testing datasets.")
             
             input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
-
+            # logging.info(f'After preprocessing: \n{input_feature_train_arr}')
+            # logging.info(f'After preprocessing: \n{input_feature_test_arr}')
             train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
             
